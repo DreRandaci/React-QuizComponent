@@ -5,32 +5,31 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quizQuestions: [],
       quizPosition: 1
     };
   }
 
   componentDidMount() {
-    const req = new Request('http://localhost:8080/api/db');
-    fetch(req)
-    .then(res => res.json())
-    .then((result) => {
-      this.setState({
-        quizQuestions: result.quiz_questions
-      });
-    }, (error) => {
-      console.log('Error: ', error)
-    });
+    // const req = new Request('http://localhost:8080/api/db');
+    // fetch(req)
+    // .then(res => res.json())
+    // .then((result) => {
+    //   this.setState({
+    //     quizQuestions: result.quiz_questions
+    //   });
+    // }, (error) => {
+    //   console.log('Error: ', error)
+    // });
   }
 
   render() {
-    const { quizQuestions } = this.state;
+    // const { quizQuestions } = this.state;
     const { quizPosition } = this.state;
     return (
       <div>
         <div className='QuizQuestion'>
           {
-            quizQuestions[quizPosition] && quizQuestions[quizPosition].instruction_text
+            quizData[quizPosition] && quizData[quizPosition].instruction_text
           }
         </div>
 
