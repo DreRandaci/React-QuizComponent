@@ -5,7 +5,7 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quizPosition: 1
+      quiz_position: 1
     };
   }
 
@@ -24,12 +24,14 @@ class Quiz extends Component {
 
   render() {
     // const { quizQuestions } = this.state;
-    const { quizPosition } = this.state;
+    const {
+      quiz_position
+    } = this.state;
     return (
       <div>
         <div className='QuizQuestion'>
           {
-            quizData[quizPosition] && quizData[quizPosition].instruction_text
+            quizData.quiz_questions[quiz_position].instruction_text
           }
         </div>
 
