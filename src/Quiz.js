@@ -5,7 +5,8 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quizQuestions: []
+      quizQuestions: [],
+      quizPosition: 1
     };
   }
 
@@ -14,7 +15,6 @@ class Quiz extends Component {
     fetch(req)
     .then(res => res.json())
     .then((result) => {
-      console.log(result.quiz_questions[0].instruction_text)
       this.setState({
         quizQuestions: result.quiz_questions
       });
@@ -24,12 +24,13 @@ class Quiz extends Component {
   }
 
   render() {
-    const questions = this.state.quizQuestions;
+    const { quizQuestions } = this.state;
+    const { quizPosition } = this.state;
     return (
       <div>
         <div className='QuizQuestion'>
           {
-            questions[1] && questions[1].instruction_text
+            quizQuestions[quizPosition] && quizQuestions[quizPosition].instruction_text
           }
         </div>
 
